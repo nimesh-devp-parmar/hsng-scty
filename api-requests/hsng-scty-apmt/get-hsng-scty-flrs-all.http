@@ -1,3 +1,0 @@
-GET http://localhost:4000/hsng-scty-apmt/all
-GET http://localhost:4000/hsng-scty-apmt/slctByRegnSctnFlor?regnNmbr=REG/SRT/SA(HAA) 02468/2016&sctnName=B&florNmbr=9
-GET http://localhost:4000/hsng-scty-apmt/slctByRegnSctnFlorApmt?regnNmbr=REG/SRT/SA(HAA) 02468/2016&sctnName=B&florNmbr=9&apmtNmbr=902
