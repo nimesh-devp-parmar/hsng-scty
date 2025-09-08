@@ -1,0 +1,16 @@
+PUT http://localhost:4000/hsng-scty-offc-brrs
+Content-Type: application/json
+
+{
+	"hsngSctyOffcBrrsRegnNmbr": "REG/SRT/SA(HAA) 02468/2016",
+	"hsngSctyOffcBrrsTitl": "Committee Member",
+	"hsngSctyOffcBrrsSeqnNmbr": 4,
+	"hsngSctyOffcBrrsNameFrst": "Sunjoy",
+	"hsngSctyOffcBrrsNameMidl": "X",
+	"hsngSctyOffcBrrsNameLast": "Verma",
+	"hsngSctyOffcBrrsDateStrt": 1477976400000,
+	"hsngSctyOffcBrrsDateFnsh": 1757048400000,
+	"hsngSctyOffcBrrsCntcNmbr": 5678901234,
+	"hsngSctyOffcBrrsCntcMail": "prashant_shah@surat.com",
+	"hsngSctyOffcBrrsCntcWtsp": 5678901234,
+}
