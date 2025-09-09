@@ -1,13 +1,13 @@
 GET:
 
 	http://localhost:4000/hsng-scty-root/all
-	http://localhost:4000/hsng-scty-root/getByPartialName?hsngSctyNamePrtl=Heights
+	http://localhost:4000/hsng-scty-root/getByPrtlName?hsngSctyNamePrtl=Heights
 	http://localhost:4000/hsng-scty-root/getByNameStartsWith?hsngSctyNameStartsWith=Shiv
 	http://localhost:4000/hsng-scty-root/getByNameEndsWith?hsngSctyNameEndsWith=Society
-	http://localhost:4000/hsng-scty-root/getByPartialRegnNmbr?hsngSctyRegnNmbrPrtl=02468
+	http://localhost:4000/hsng-scty-root/getByPrtlRegnNmbr?hsngSctyRegnNmbrPrtl=02468
 	http://localhost:4000/hsng-scty-root/getByRegnNmbrStartsWith?hsngSctyRegnNmbrStartsWith=REG/SRT/SA(HAA) 02468
 	http://localhost:4000/hsng-scty-root/getByRegnNmbrEndsWith?hsngSctyRegnNmbrEndsWith=02468/2016
-	http://localhost:4000/hsng-scty-root/getByAddrStrtLike?hsngSctyAddrStrtPrtl=Magdalla
+	http://localhost:4000/hsng-scty-root/getByPrtlAddrStrt?hsngSctyAddrStrtPrtl=Magdalla
 	http://localhost:4000/hsng-scty-root/getByAddrStrtStartsWith?hsngSctyAddrStrtStartsWith=VIP
 	http://localhost:4000/hsng-scty-root/getByAddrStrtEndsWith?hsngSctyAddrStrtEndsWith=Road
 	http://localhost:4000/hsng-scty-root/getByAddrArea?hsngSctyAddrArea=Vesu
