@@ -1,0 +1,1 @@
+docker image build --no-cache --file D:\01_new\05_proj\Hsng_Scty_Mgmt\HsngSctyRootSrvc\Docker\DockerFiles\dockerfile-root-mysql --tag dckr-imge-hsng-scty-root-mysql:latest D:\01_new\05_proj\Hsng_Scty_Mgmt\HsngSctyRootSrvc

@@ -1,0 +1,1 @@
+docker network rm dckr-ntwk-hsng-scty

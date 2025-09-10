@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>hsngscty</artifactId>
+	<artifactId>hsng-scty-root</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>HsngSctyRoot</name>
 	<description>A project for automating manual tasks of a housing society</description>

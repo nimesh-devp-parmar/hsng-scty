@@ -2,7 +2,7 @@
 
 CREATE TABLE IF NOT EXISTS HSNG_SCTY_ROOT
 (
-    Hsng_Scty_Iden		UUID			PRIMARY KEY,
+    Hsng_Scty_Iden		VARCHAR(36)			PRIMARY KEY,
     Hsng_Scty_Name		VARCHAR(255)	NOT NULL,
     Hsng_Scty_Regn_Nmbr	VARCHAR(255)	UNIQUE NOT NULL,
     Hsng_Scty_Regn_Date	BIGINT			NOT NULL,

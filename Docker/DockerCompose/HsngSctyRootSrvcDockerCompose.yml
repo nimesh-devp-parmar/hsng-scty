@@ -1,0 +1,32 @@
+version: "3.8"
+
+networks:
+  dckr-ntwk-hsng-scty:
+    driver: bridge
+services:
+  dckr-cntr-hsng-scty-root-mysql:
+    image: dckr-imge-hsng-scty-root-mysql:latest
+    ports:
+      - "3306:3306"
+    mem_limit: 512m
+    volumes:
+      - D:\01_new\05_proj\Hsng_Scty_Mgmt\HsngSctyRootSrvc\Docker\Volumes\HSNG_SCTY_ROOT_DATA_MYSQL:/var/lib/mysql
+    env_file:
+      - D:\01_new\05_proj\Hsng_Scty_Mgmt\HsngSctyRootSrvc\Docker\DockerEnv\dckr-cntr-hsng-scty-root-mysql.env
+    healthcheck:
+      test: ["CMD", "mysqladmin", "-u", "hsngSctyRootUser", "-puserPassword", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  dckr-cntr-hsng-scty-root-appl:
+    image: dckr-imge-hsng-scty-root-appl:latest
+    ports:
+      - "4000:4000"
+    mem_limit: 512m
+    env_file:
+      - D:\01_new\05_proj\Hsng_Scty_Mgmt\HsngSctyRootSrvc\Docker\DockerEnv\dckr-cntr-hsng-scty-root-appl.env
+    depends_on:
+      dckr-cntr-hsng-scty-root-mysql:
+        condition: service_healthy

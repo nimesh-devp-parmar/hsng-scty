@@ -1,0 +1,1 @@
+docker network create dckr-ntwk-hsng-scty
