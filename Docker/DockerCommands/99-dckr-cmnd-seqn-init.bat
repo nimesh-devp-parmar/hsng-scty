@@ -4,6 +4,11 @@ REM	for /F %i in ('docker images -a -q') do docker rmi -f %i
 REM	docker system prune -a --volumes
 REM	pause
 
+REM	docker stop $(docker ps -a -q)
+REM	docker rm $(docker ps -a -q)
+REM	docker rmi -f $(docker images -q)
+REM	docker system prune --all --volumes
+
 REM	Build the mysql image and pause
 docker image build --file D:\01_new\05_proj\Hsng_Scty_Mgmt\HsngSctyRootSrvc\Dockerfile-root-mysql --tag dckr-imge-hsng-scty-root-mysql:latest D:\01_new\05_proj\Hsng_Scty_Mgmt\HsngSctyRootSrvc
 pause

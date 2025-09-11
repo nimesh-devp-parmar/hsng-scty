@@ -20,7 +20,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Entity
 @IdClass(HsngSctyFlrsCmps.class)
-@Table(name = "HSNG_SCTY_FLRS")
+@Table(name = "hsng_scty_flrs")
 public	class		HsngSctyFlrs 
 		implements	Serializable	{
 

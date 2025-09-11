@@ -1,20 +1,6 @@
---	Start of HSNG_SCTY_ROOT
+--	Start of hsng_scty_root
 
-CREATE TABLE IF NOT EXISTS HSNG_SCTY_ROOT
-(
-    Hsng_Scty_Iden		VARCHAR(36)			PRIMARY KEY,
-    Hsng_Scty_Name		VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Regn_Nmbr	VARCHAR(255)	UNIQUE NOT NULL,
-    Hsng_Scty_Regn_Date	BIGINT			NOT NULL,
-    Hsng_Scty_Addr_Strt	VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Addr_Area	VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Addr_City	VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Addr_Stte	VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Addr_Ctry	VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Addr_Pinc	VARCHAR(10)		NOT NULL
-);
-
-INSERT	INTO	HSNG_SCTY_ROOT	(
+INSERT	INTO	hsng_scty_root	(
 	Hsng_Scty_Iden, Hsng_Scty_Name, Hsng_Scty_Regn_Nmbr, Hsng_Scty_Regn_Date, Hsng_Scty_Addr_Strt, Hsng_Scty_Addr_Area, Hsng_Scty_Addr_City, Hsng_Scty_Addr_Stte, Hsng_Scty_Addr_Ctry, Hsng_Scty_Addr_Pinc
 )
 SELECT	'01991734-792d-744f-8d55-8e85ec7bb4fd',
@@ -28,10 +14,10 @@ SELECT	'01991734-792d-744f-8d55-8e85ec7bb4fd',
 		'India',
 		'395007'
 WHERE NOT EXISTS (SELECT 1
-                  FROM HSNG_SCTY_ROOT
+                  FROM hsng_scty_root
                   WHERE Hsng_Scty_Iden = '01991734-792d-744f-8d55-8e85ec7bb4fd');
 
-INSERT	INTO	HSNG_SCTY_ROOT	(
+INSERT	INTO	hsng_scty_root	(
 	Hsng_Scty_Iden, Hsng_Scty_Name, Hsng_Scty_Regn_Nmbr, Hsng_Scty_Regn_Date, Hsng_Scty_Addr_Strt, Hsng_Scty_Addr_Area, Hsng_Scty_Addr_City, Hsng_Scty_Addr_Stte, Hsng_Scty_Addr_Ctry, Hsng_Scty_Addr_Pinc
 )
 SELECT	'0199174f-6a2c-7521-8b08-fdee1f2b0054',
@@ -45,30 +31,13 @@ SELECT	'0199174f-6a2c-7521-8b08-fdee1f2b0054',
 		'India',
 		'395007'
 WHERE NOT EXISTS (SELECT 1
-                  FROM HSNG_SCTY_ROOT
+                  FROM hsng_scty_root
                   WHERE Hsng_Scty_Iden = '0199174f-6a2c-7521-8b08-fdee1f2b0054');
 
                   
---	Start of HSNG_SCTY_OFFC_BRRS
+--	Start of hsng_scty_offc_brrs
 
-CREATE TABLE IF NOT EXISTS HSNG_SCTY_OFFC_BRRS
-(
-    Hsng_Scty_Offc_Brrs_Regn_Nmbr		VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Offc_Brrs_Titl			VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Offc_Brrs_Seqn_Nmbr		INT 			NOT NULL,
-    Hsng_Scty_Offc_Brrs_Name_Frst		VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Offc_Brrs_Name_Midl		VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Offc_Brrs_Name_Last		VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Offc_Brrs_Date_Strt		BIGINT			NOT NULL,
-    Hsng_Scty_Offc_Brrs_Date_Fnsh		BIGINT,
-    Hsng_Scty_Offc_Brrs_Cntc_Nmbr		BIGINT			NOT NULL,
-    Hsng_Scty_Offc_Brrs_Cntc_Mail		VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Offc_Brrs_Cntc_Wtsp		BIGINT			NOT NULL,
-    PRIMARY KEY (Hsng_Scty_Offc_Brrs_Regn_Nmbr, Hsng_Scty_Offc_Brrs_Titl, Hsng_Scty_Offc_Brrs_Seqn_Nmbr),
-	FOREIGN KEY (Hsng_Scty_Offc_Brrs_Regn_Nmbr) REFERENCES HSNG_SCTY_ROOT(Hsng_Scty_Regn_Nmbr)
- );
-
-INSERT INTO HSNG_SCTY_OFFC_BRRS (
+INSERT INTO hsng_scty_offc_brrs (
 	Hsng_Scty_Offc_Brrs_Regn_Nmbr, 
 	Hsng_Scty_Offc_Brrs_Titl, 
 	Hsng_Scty_Offc_Brrs_Seqn_Nmbr, 
@@ -93,13 +62,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'prakash_patel@surat.com', 
 		1234567890 
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_OFFC_BRRS 
+	SELECT 1	FROM	hsng_scty_offc_brrs 
 				WHERE 	Hsng_Scty_Offc_Brrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND 
 						Hsng_Scty_Offc_Brrs_Titl		=	'President'						AND 
 						Hsng_Scty_Offc_Brrs_Seqn_Nmbr 	=	0
 );
 
-INSERT INTO HSNG_SCTY_OFFC_BRRS (
+INSERT INTO hsng_scty_offc_brrs (
 	Hsng_Scty_Offc_Brrs_Regn_Nmbr, 
 	Hsng_Scty_Offc_Brrs_Titl, 
 	Hsng_Scty_Offc_Brrs_Seqn_Nmbr, 
@@ -124,13 +93,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'akhilesh_naik@surat.com', 
 		234567891 
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_OFFC_BRRS 
+	SELECT 1	FROM	hsng_scty_offc_brrs 
 				WHERE 	Hsng_Scty_Offc_Brrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND 
 						Hsng_Scty_Offc_Brrs_Titl		=	'Secretary'						AND 
 						Hsng_Scty_Offc_Brrs_Seqn_Nmbr 	=	1
 );
 
-INSERT INTO HSNG_SCTY_OFFC_BRRS (
+INSERT INTO hsng_scty_offc_brrs (
 	Hsng_Scty_Offc_Brrs_Regn_Nmbr, 
 	Hsng_Scty_Offc_Brrs_Titl, 
 	Hsng_Scty_Offc_Brrs_Seqn_Nmbr, 
@@ -155,13 +124,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'prashant_shah@surat.com', 
 		345678912 
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_OFFC_BRRS 
+	SELECT 1	FROM	hsng_scty_offc_brrs 
 				WHERE 	Hsng_Scty_Offc_Brrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND 
 						Hsng_Scty_Offc_Brrs_Titl		=	'Treasurer'						AND 
 						Hsng_Scty_Offc_Brrs_Seqn_Nmbr 	=	2
 );
 
-INSERT INTO HSNG_SCTY_OFFC_BRRS (
+INSERT INTO hsng_scty_offc_brrs (
 	Hsng_Scty_Offc_Brrs_Regn_Nmbr, 
 	Hsng_Scty_Offc_Brrs_Titl, 
 	Hsng_Scty_Offc_Brrs_Seqn_Nmbr, 
@@ -186,13 +155,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'prashant_shah@surat.com', 
 		4567890123
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_OFFC_BRRS 
+	SELECT 1	FROM	hsng_scty_offc_brrs 
 				WHERE 	Hsng_Scty_Offc_Brrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND 
 						Hsng_Scty_Offc_Brrs_Titl		=	'Committee Member'				AND 
 						Hsng_Scty_Offc_Brrs_Seqn_Nmbr 	=	3
 );
 
-INSERT INTO HSNG_SCTY_OFFC_BRRS (
+INSERT INTO hsng_scty_offc_brrs (
 	Hsng_Scty_Offc_Brrs_Regn_Nmbr, 
 	Hsng_Scty_Offc_Brrs_Titl, 
 	Hsng_Scty_Offc_Brrs_Seqn_Nmbr, 
@@ -217,55 +186,39 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'prashant_shah@surat.com', 
 		5678901234
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_OFFC_BRRS 
+	SELECT 1	FROM	hsng_scty_offc_brrs 
 				WHERE 	Hsng_Scty_Offc_Brrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND 
 						Hsng_Scty_Offc_Brrs_Titl		=	'Committee Member'				AND 
 						Hsng_Scty_Offc_Brrs_Seqn_Nmbr 	=	4
 );
 
---	Start of HSNG_SCTY_SCTN
+--	Start of hsng_scty_sctn
 
-CREATE TABLE IF NOT EXISTS HSNG_SCTY_SCTN
-(
-    Hsng_Scty_Sctn_Regn_Nmbr			VARCHAR(255)	PRIMARY KEY,
-    Hsng_Scty_Sctn_Totl					INT 			NOT NULL,
-	FOREIGN KEY (Hsng_Scty_Sctn_Regn_Nmbr) REFERENCES HSNG_SCTY_ROOT(Hsng_Scty_Regn_Nmbr)
- );
-
-INSERT INTO HSNG_SCTY_SCTN (
+INSERT INTO hsng_scty_sctn (
 	Hsng_Scty_Sctn_Regn_Nmbr, 
 	Hsng_Scty_Sctn_Totl
 )
 SELECT	'REG/SRT/SA(HAA) 02468/2016', 
 		2
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_SCTN 
+	SELECT 1	FROM	hsng_scty_sctn 
 				WHERE 	Hsng_Scty_Sctn_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'
 );
 
-INSERT INTO HSNG_SCTY_SCTN (
+INSERT INTO hsng_scty_sctn (
 	Hsng_Scty_Sctn_Regn_Nmbr, 
 	Hsng_Scty_Sctn_Totl
 )
 SELECT	'REG/SRT/SA(HAA) 13579/2018', 
 		0
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_SCTN 
+	SELECT 1	FROM	hsng_scty_sctn 
 				WHERE 	Hsng_Scty_Sctn_Regn_Nmbr	=	'REG/SRT/SA(HAA) 13579/2018'
 );
 
---	Start of HSNG_SCTY_SCTN_DTLS
+--	Start of hsng_scty_sctn_dtls
 
-CREATE TABLE IF NOT EXISTS HSNG_SCTY_SCTN_DTLS
-(
-    Hsng_Scty_Sctn_Dtls_Regn_Nmbr		VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Sctn_Dtls_Name			VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Sctn_Dtls_Flrs			BIGINT			NOT NULL,
-    PRIMARY KEY (Hsng_Scty_Sctn_Dtls_Regn_Nmbr, Hsng_Scty_Sctn_Dtls_Name),
-	FOREIGN KEY (Hsng_Scty_Sctn_Dtls_Regn_Nmbr) REFERENCES HSNG_SCTY_ROOT(Hsng_Scty_Regn_Nmbr)
- );
-
-INSERT INTO HSNG_SCTY_SCTN_DTLS (
+INSERT INTO hsng_scty_sctn_dtls (
 	Hsng_Scty_Sctn_Dtls_Regn_Nmbr, 
 	Hsng_Scty_Sctn_Dtls_Name,
 	Hsng_Scty_Sctn_Dtls_Flrs
@@ -274,12 +227,12 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'A',
 		9
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_SCTN_DTLS 
+	SELECT 1	FROM	hsng_scty_sctn_dtls 
 				WHERE 	Hsng_Scty_Sctn_Dtls_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016' AND
 						Hsng_Scty_Sctn_Dtls_Name		=	'A'
 );
 
-INSERT INTO HSNG_SCTY_SCTN_DTLS (
+INSERT INTO hsng_scty_sctn_dtls (
 	Hsng_Scty_Sctn_Dtls_Regn_Nmbr, 
 	Hsng_Scty_Sctn_Dtls_Name,
 	Hsng_Scty_Sctn_Dtls_Flrs
@@ -288,23 +241,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'B',
 		9
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_SCTN_DTLS 
+	SELECT 1	FROM	hsng_scty_sctn_dtls 
 				WHERE 	Hsng_Scty_Sctn_Dtls_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016' AND
 						Hsng_Scty_Sctn_Dtls_Name		=	'B'
 );
 
---	Start of HSNG_SCTY_FLRS
+--	Start of hsng_scty_flrs
 
-CREATE TABLE IF NOT EXISTS HSNG_SCTY_FLRS
-(
-    Hsng_Scty_Flrs_Regn_Nmbr		VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Flrs_Sctn_Name		VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Flrs_Flor_Nmbr		BIGINT			NOT NULL,
-    PRIMARY KEY (Hsng_Scty_Flrs_Regn_Nmbr, Hsng_Scty_Flrs_Sctn_Name, Hsng_Scty_Flrs_Flor_Nmbr),
-	FOREIGN KEY (Hsng_Scty_Flrs_Regn_Nmbr, Hsng_Scty_Flrs_Sctn_Name) REFERENCES HSNG_SCTY_SCTN_DTLS(Hsng_Scty_Sctn_Dtls_Regn_Nmbr, Hsng_Scty_Sctn_Dtls_Name)
- );
-
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -313,13 +257,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'A',
 		1
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'A'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	1
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -328,13 +272,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'A',
 		2
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'A'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	2
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -343,13 +287,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'A',
 		3
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'A'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	3
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -358,13 +302,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'A',
 		4
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'A'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	4
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -373,14 +317,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'A',
 		5
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'A'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	5
 );
 
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -389,13 +333,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'A',
 		6
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'A'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	6
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -404,13 +348,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'A',
 		7
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'A'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	7
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -419,13 +363,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'A',
 		8
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'A'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	8
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -434,13 +378,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'A',
 		9
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'A'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	9
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -449,13 +393,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'B',
 		1
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	1
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -464,13 +408,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'B',
 		2
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	2
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -479,13 +423,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'B',
 		3
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	3
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -494,13 +438,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'B',
 		4
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	4
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -509,14 +453,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'B',
 		5
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	5
 );
 
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -525,13 +469,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'B',
 		6
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	6
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -540,13 +484,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'B',
 		7
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	7
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -555,13 +499,13 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'B',
 		8
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	8
 );
 
-INSERT INTO HSNG_SCTY_FLRS (
+INSERT INTO hsng_scty_flrs (
 	Hsng_Scty_Flrs_Regn_Nmbr, 
 	Hsng_Scty_Flrs_Sctn_Name,
 	Hsng_Scty_Flrs_Flor_Nmbr
@@ -570,29 +514,16 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		'B',
 		9
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_FLRS 
+	SELECT 1	FROM	hsng_scty_flrs 
 				WHERE 	Hsng_Scty_Flrs_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Flrs_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Flrs_Flor_Nmbr	=	9
 );
 
 
---	Start of HSNG_SCTY_APMT
+--	Start of hsng_scty_apmt
 
-CREATE TABLE IF NOT EXISTS HSNG_SCTY_APMT
-(
-    Hsng_Scty_Apmt_Regn_Nmbr		VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Apmt_Sctn_Name		VARCHAR(255)	NOT NULL,
-    Hsng_Scty_Apmt_Flor_Nmbr		BIGINT			NOT NULL,
-    Hsng_Scty_Apmt_Nmbr				BIGINT			NOT NULL,
-    Hsng_Scty_Apmt_Size				BIGINT			NOT NULL,
-    Hsng_Scty_Apmt_Size_Unit		VARCHAR(255)	NOT NULL,
-    
-    PRIMARY KEY (Hsng_Scty_Apmt_Regn_Nmbr, Hsng_Scty_Apmt_Sctn_Name, Hsng_Scty_Apmt_Flor_Nmbr, Hsng_Scty_Apmt_Nmbr),
-	FOREIGN KEY (Hsng_Scty_Apmt_Regn_Nmbr, Hsng_Scty_Apmt_Sctn_Name, Hsng_Scty_Apmt_Flor_Nmbr) REFERENCES HSNG_SCTY_FLRS(Hsng_Scty_Flrs_Regn_Nmbr, Hsng_Scty_Flrs_Sctn_Name, Hsng_Scty_Flrs_Flor_Nmbr)
- );
-
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -607,14 +538,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1575,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	1								AND
 						Hsng_Scty_Apmt_Nmbr			=	101
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -629,14 +560,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1525,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	1								AND
 						Hsng_Scty_Apmt_Nmbr			=	102
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -651,14 +582,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1575,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	2								AND
 						Hsng_Scty_Apmt_Nmbr			=	201
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -673,14 +604,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1525,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	2								AND
 						Hsng_Scty_Apmt_Nmbr			=	202
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -695,14 +626,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1575,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	3								AND
 						Hsng_Scty_Apmt_Nmbr			=	301
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -717,14 +648,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1525,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	3								AND
 						Hsng_Scty_Apmt_Nmbr			=	302
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -739,14 +670,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		2000,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	3								AND
 						Hsng_Scty_Apmt_Nmbr			=	303
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -761,14 +692,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1575,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	4								AND
 						Hsng_Scty_Apmt_Nmbr			=	401
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -783,14 +714,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1525,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	4								AND
 						Hsng_Scty_Apmt_Nmbr			=	402
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -805,14 +736,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1400,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	4								AND
 						Hsng_Scty_Apmt_Nmbr			=	403
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -827,14 +758,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1200,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	4								AND
 						Hsng_Scty_Apmt_Nmbr			=	404
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -849,7 +780,7 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1575,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	5								AND
@@ -857,7 +788,7 @@ WHERE NOT EXISTS (
 );
 
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -872,14 +803,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1525,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	5								AND
 						Hsng_Scty_Apmt_Nmbr			=	502
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -894,14 +825,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1200,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	5								AND
 						Hsng_Scty_Apmt_Nmbr			=	504
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -916,14 +847,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1575,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	6								AND
 						Hsng_Scty_Apmt_Nmbr			=	601
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -938,7 +869,7 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1525,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	6								AND
@@ -946,7 +877,7 @@ WHERE NOT EXISTS (
 );
 
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -961,14 +892,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1400,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	6								AND
 						Hsng_Scty_Apmt_Nmbr			=	603
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -983,7 +914,7 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1200,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	6								AND
@@ -991,7 +922,7 @@ WHERE NOT EXISTS (
 );
 
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -1006,7 +937,7 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1575,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	7								AND
@@ -1014,7 +945,7 @@ WHERE NOT EXISTS (
 );
 
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -1029,14 +960,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1525,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	7								AND
 						Hsng_Scty_Apmt_Nmbr			=	702
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -1051,14 +982,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1200,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	7								AND
 						Hsng_Scty_Apmt_Nmbr			=	704
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -1073,14 +1004,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1575,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	8								AND
 						Hsng_Scty_Apmt_Nmbr			=	801
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -1095,7 +1026,7 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1525,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	8								AND
@@ -1103,7 +1034,7 @@ WHERE NOT EXISTS (
 );
 
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -1118,14 +1049,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1400,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	8								AND
 						Hsng_Scty_Apmt_Nmbr			=	803
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -1140,14 +1071,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1200,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	8								AND
 						Hsng_Scty_Apmt_Nmbr			=	804
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -1162,7 +1093,7 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1575,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	9								AND
@@ -1170,7 +1101,7 @@ WHERE NOT EXISTS (
 );
 
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -1185,14 +1116,14 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1525,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	9								AND
 						Hsng_Scty_Apmt_Nmbr			=	902
 );
 
-INSERT INTO HSNG_SCTY_APMT (
+INSERT INTO hsng_scty_apmt (
 	Hsng_Scty_Apmt_Regn_Nmbr, 
 	Hsng_Scty_Apmt_Sctn_Name,
 	Hsng_Scty_Apmt_Flor_Nmbr,
@@ -1207,7 +1138,7 @@ SELECT	'REG/SRT/SA(HAA) 02468/2016',
 		1200,
 		'Square Feet'
 WHERE NOT EXISTS (
-	SELECT 1	FROM	HSNG_SCTY_APMT
+	SELECT 1	FROM	hsng_scty_apmt
 				WHERE 	Hsng_Scty_Apmt_Regn_Nmbr	=	'REG/SRT/SA(HAA) 02468/2016'	AND
 						Hsng_Scty_Apmt_Sctn_Name	=	'B'								AND
 						Hsng_Scty_Apmt_Flor_Nmbr	=	9								AND

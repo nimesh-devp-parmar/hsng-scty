@@ -2,15 +2,17 @@ version: "3.8"
 
 networks:
   dckr-ntwk-hsng-scty:
+    name: dckr-ntwk-hsng-scty
     driver: bridge
 services:
   dckr-cntr-hsng-scty-root-mysql:
     image: dckr-imge-hsng-scty-root-mysql:latest
+    container_name: dckr-cntr-hsng-scty-root-mysql
     ports:
       - "3306:3306"
     mem_limit: 512m
     volumes:
-      - D:\01_new\05_proj\Hsng_Scty_Mgmt\HsngSctyRootSrvc\Docker\Volumes\HSNG_SCTY_ROOT_DATA_MYSQL:/var/lib/mysql
+      - D:\01_new\05_proj\Hsng_Scty_Mgmt\HsngSctyRootSrvc\Docker\DockerVolumes\HSNG_SCTY_ROOT_DATA_MYSQL:/var/lib/mysql
     env_file:
       - D:\01_new\05_proj\Hsng_Scty_Mgmt\HsngSctyRootSrvc\Docker\DockerEnv\dckr-cntr-hsng-scty-root-mysql.env
     healthcheck:
@@ -22,6 +24,7 @@ services:
 
   dckr-cntr-hsng-scty-root-appl:
     image: dckr-imge-hsng-scty-root-appl:latest
+    container_name: dckr-cntr-hsng-scty-root-appl
     ports:
       - "4000:4000"
     mem_limit: 512m

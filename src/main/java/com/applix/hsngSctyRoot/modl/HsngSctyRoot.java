@@ -18,7 +18,7 @@ import jakarta.validation.constraints.NotNull;
  * 
  */
 @Entity
-@Table(name = "HSNG_SCTY_ROOT")
+@Table(name = "hsng_scty_root")
 public	class		HsngSctyRoot 
 		implements	Serializable	{
 
