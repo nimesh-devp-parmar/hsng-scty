@@ -1,5 +1,8 @@
 GET:
 
+	http://localhost:4000/hsng-scty-root-hlth-chck/getStts
+	
+
 	http://localhost:4000/hsng-scty-root/all
 	http://localhost:4000/hsng-scty-root/getByPartialName?hsngSctyNamePrtl=Heights
 	http://localhost:4000/hsng-scty-root/getByNameStartsWith?hsngSctyNameStartsWith=Shiv

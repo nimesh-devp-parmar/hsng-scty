@@ -15,7 +15,6 @@ import com.applix.hsngSctyRoot.dtxo.HsngSctyRootRqstDTXO;
 import com.applix.hsngSctyRoot.excp.CantDletHsngSctyRootChldExstExcp;
 import com.applix.hsngSctyRoot.excp.HsngSctyRegnNmbrAlreadyExistsException;
 import com.applix.hsngSctyRoot.excp.HsngSctyRootRegnDateFutrExcp;
-import com.applix.hsngSctyRoot.modl.HsngSctyOffcBrrs;
 import com.applix.hsngSctyRoot.modl.HsngSctyRoot;
 import com.applix.hsngSctyRoot.mppr.HsngSctyRootMppr;
 import com.applix.hsngSctyRoot.repo.IHsngSctyRootRepo;

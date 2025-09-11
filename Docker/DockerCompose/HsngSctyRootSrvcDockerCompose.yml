@@ -33,3 +33,8 @@ services:
     depends_on:
       dckr-cntr-hsng-scty-root-mysql:
         condition: service_healthy
+    healthcheck:
+       test: ["CMD-SHELL", "curl -s http://localhost:4000/hsng-scty-root-hlth-chck/getStts | grep -q 'true'"]
+       interval: 10s
+       timeout: 5s
+       retries: 5
