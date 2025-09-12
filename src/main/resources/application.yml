@@ -1,0 +1,15 @@
+server:
+  port: 3999
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: hsng-scty-root-srvc
+          uri: http://dckr-cntr-hsng-scty-root-appl:4000
+          predicates:
+            - Path=/api/hsng-scty-root/**
+          filters:
+            - StripPrefix=1
+#
+#   REST CLIENT NAVIGATES TO                                  ==> http://localhost:3999/api/hsng-scty-root/all
+#   API GATEWAY APPLIES ABOVE RULES & FILTERS AND CONVERTS TO ==> http://hsng-scty-root:4000/all
